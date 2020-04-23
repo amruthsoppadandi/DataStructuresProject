@@ -1,4 +1,5 @@
 package noote;
+// this can be ignored
 
 public class ArrayQueue {
 	int top =-1;
