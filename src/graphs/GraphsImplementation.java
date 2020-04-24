@@ -23,7 +23,6 @@ public class GraphsImplementation {
 		else {
 			if(root.num==0) {
 				root=start;
-				//repeat=root;
 				Node child= new Node(data);
 				start.edges.put(data,child);
 				return;
@@ -41,7 +40,7 @@ public class GraphsImplementation {
 					else {
 						if(repeat.edges.size()!=0) {
 							Node dum = new Node(data);
-							repeat.edges.put(data,dum);
+							start.edges.put(data,dum);
 						}
 					}
 					for(Node subNode : repeat.edges.values()) {
@@ -49,5 +48,24 @@ public class GraphsImplementation {
 				}
 			}
 		}
+	}
+	
+	public void print(Node root) {
+		System.out.println(root.num);
+		showElements(root);
+	}
+	
+	public void showElements(Node root) {
+		if(root.edges.size()==0) {
+			return;
+		}
+		else {
+			for(Node subNode : root.edges.values()) {
+				System.out.println(subNode.num);
+				showElements(subNode);
+				
+			}
+		}
+		
 	}
 }
