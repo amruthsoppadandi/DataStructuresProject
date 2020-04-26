@@ -1,7 +1,20 @@
 package graphs;
 
+import java.util.HashMap;
 
 public class GraphsImplementation {
+	
+	class Node{
+		int num;
+		HashMap<Integer,Node> edges;
+		Node(){
+			
+		}
+		Node(int num){
+			this.num= num;
+			this.edges= new HashMap<Integer, Node>();
+		}
+	}
 	
 	private  Node root;
 
@@ -51,7 +64,6 @@ public class GraphsImplementation {
 	}
 	
 	public void print(Node root) {
-		System.out.println(root.num);
 		showElements(root);
 	}
 	
@@ -61,10 +73,11 @@ public class GraphsImplementation {
 		}
 		else {
 			for(Node subNode : root.edges.values()) {
-				System.out.println(subNode.num);
 				showElements(subNode);
-				
+				System.out.println(subNode.num);
 			}
+			System.out.println(root.num);
+			
 		}
 		
 	}
